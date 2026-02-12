@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: { children: ReactNode}) {
             </Link>
         </div>
 
-        <div>{children}</div>      
+        <div className="w-full max-w-md mx-auto">{children}</div>      
     </div>
   );
 }
