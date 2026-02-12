@@ -29,10 +29,36 @@ export default function SignUpPage() {
                           control={form.control}
                           render={({ field, fieldState }) => (
                               <Field>
-                                  <FieldLabel>Fill Name</FieldLabel>
+                                  <FieldLabel>Full Name</FieldLabel>
                                   <Input placeholder="Your Full Name" {...field} />
                                   {fieldState.invalid && (
-                                    <FieldError errors={[fieldState.error]}/>
+                                      <FieldError errors={[fieldState.error]} />
+                                  )}
+                              </Field>
+                          )}
+                      />
+                      <Controller
+                          name="email"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                              <Field>
+                                  <FieldLabel>Email</FieldLabel>
+                                  <Input placeholder="Your Email" {...field} />
+                                  {fieldState.invalid && (
+                                      <FieldError errors={[fieldState.error]} />
+                                  )}
+                              </Field>
+                          )}
+                      />
+                      <Controller
+                          name="password"
+                          control={form.control}
+                          render={({ field, fieldState }) => (
+                              <Field>
+                                  <FieldLabel>Your Password</FieldLabel>
+                                  <Input placeholder="Your Password" {...field} />
+                                  {fieldState.invalid && (
+                                      <FieldError errors={[fieldState.error]} />
                                   )}
                               </Field>
                           )}
