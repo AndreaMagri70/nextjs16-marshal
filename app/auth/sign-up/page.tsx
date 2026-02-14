@@ -34,6 +34,11 @@ export default function SignUpPage() {
       password: "",
     },
   });
+
+  function onSubmit(){
+    console.log("HIIIII");
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -41,7 +46,7 @@ export default function SignUpPage() {
         <CardDescription>Create an account to get started</CardDescription>
       </CardHeader>
       <CardContent>
-        <form >
+        <form onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
           <Controller 
             name="name" 
@@ -49,7 +54,9 @@ export default function SignUpPage() {
             render={( {field, fieldState }) => (
               <Field>
                 <FieldLabel>Full Name</FieldLabel>
-                <Input placeholder="Jhon Doe" {...field}/>
+                <Input 
+                aria-invalid={fieldState.invalid}
+                placeholder="Jhon Doe" {...field}/>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
@@ -62,7 +69,9 @@ export default function SignUpPage() {
             render={( {field, fieldState }) => (
               <Field>
                 <FieldLabel>Email</FieldLabel>
-                <Input placeholder="john@doe.net" {...field}/>
+                <Input 
+                aria-invalid={fieldState.invalid}
+                placeholder="john@doe.net" {...field}/>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
@@ -75,13 +84,16 @@ export default function SignUpPage() {
             render={( {field, fieldState }) => (
               <Field>
                 <FieldLabel>Password</FieldLabel>
-                <Input placeholder="*****" type="password" {...field}/>
+                <Input 
+                aria-invalid={fieldState.invalid}
+                placeholder="*****" type="password" {...field}/>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
                
               </Field>
             )} />
+            <Button>Sign Up</Button>
           </FieldGroup>
           
         </form>
