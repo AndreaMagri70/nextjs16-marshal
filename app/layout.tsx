@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { ConvexClientProvider } from "@/components/web/ConvexClientProvider";
+import { Toaster } from "@/components/ui/sonner";
 // import { ConvexClientProvider } from "@/components/web/ConvexClientProvider";
 // import { Toaster } from "@/components/ui/sonner";
 
@@ -42,7 +43,7 @@ export default function RootLayout({
           <ConvexClientProvider>{children}</ConvexClientProvider>
 
           </main>
-          {/* <Toaster closeButton /> */}
+          <Toaster closeButton />
         </ThemeProvider>
       </body>
     </html>

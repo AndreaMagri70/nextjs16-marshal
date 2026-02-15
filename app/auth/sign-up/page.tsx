@@ -16,6 +16,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client";
 // import { authClient } from "@/lib/auth-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -35,8 +36,12 @@ export default function SignUpPage() {
     },
   });
 
-  function onSubmit(){
-    console.log("HIIIII");
+  async function onSubmit(data: z.infer<typeof signUpSchema>){
+    await authClient.signUp.email({
+      email: data.email,
+      name: data.name,
+      password: data.password,
+    });
   }
 
   return (
